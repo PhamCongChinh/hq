@@ -17,9 +17,10 @@ __webpack_require__.r(__webpack_exports__);
 
 
 function MyApp({ Component , pageProps  }) {
-    return /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Component, {
+    const getLayout = Component.getLayout ?? ((page)=>page);
+    return getLayout(/*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx(Component, {
         ...pageProps
-    });
+    }));
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (MyApp);
 
