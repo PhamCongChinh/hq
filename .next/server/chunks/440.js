@@ -20,6 +20,7 @@ var external_react_ = __webpack_require__(689);
 
 const Header = ()=>{
     return /*#__PURE__*/ jsx_runtime_.jsx("div", {
+        className: "bg-slate-900 h-8 shadow-md",
         children: /*#__PURE__*/ jsx_runtime_.jsx("h1", {
             className: "text-red-700",
             children: "This is Header"

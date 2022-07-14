@@ -26,16 +26,20 @@ const Favicon = ()=>{
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)(jsx_runtime_.Fragment, {
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx("link", {
+                rel: "shortcut icon",
+                href: "/favicon.ico"
+            }),
+            /*#__PURE__*/ jsx_runtime_.jsx("link", {
                 rel: "icon",
                 type: "image/png",
                 sizes: "32x32",
-                href: "/public/favicon-32x32.png"
+                href: "/favicon-32x32.png"
             }),
             /*#__PURE__*/ jsx_runtime_.jsx("link", {
                 rel: "icon",
                 type: "image/png",
                 sizes: "16x16",
-                href: "/public/favicon-16x16.png"
+                href: "/favicon-16x16.png"
             }),
             /*#__PURE__*/ jsx_runtime_.jsx("link", {
                 rel: "manifest",
