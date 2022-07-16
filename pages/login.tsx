@@ -1,18 +1,25 @@
 import { NextPage } from "next";
 import type { NextPageWithLayout } from './_app'
-import type { ReactElement } from 'react'
+import { ReactElement, useState } from 'react'
 import Layout from '../components/Layout'
 import { useForm } from "react-hook-form";
 import axios from "axios";
+const jwt = require('jsonwebtoken')
 
+import { useRouter } from "next/router";
 
 const Login: NextPageWithLayout = () => {
+    const router = useRouter()
+    const [message, setMessage] = useState<string>('You are not logged in')
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = (data:object) => {
-        axios.post('/api/user', data)
-        .then(response => {
-            console.log(response)
+    const onSubmit = async (data:object) => {
+        await axios.post('/api/auth/login', data)
+        .then(res => {
+            console.log(res.data)
+            if (res.status === 200) {
+                router.push("/dashboard")
+            }
         })
         .catch(error => {
             console.log(error)
@@ -21,6 +28,7 @@ const Login: NextPageWithLayout = () => {
 
     return (
         <div className="flex justify-center">
+            <h1>{message}</h1>
             <form className="w-96 bg-slate-100 shadow-xl" onSubmit={handleSubmit(onSubmit)}>
                 <h1 className="text-center text-xl py-3">Đăng nhập</h1>
                 <div className="md:flex md:items-center mb-6">

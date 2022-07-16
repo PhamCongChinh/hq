@@ -19,7 +19,7 @@ const Home: NextPageWithLayout = () => {
                         <h1 className="text-3xl font-bold">
                             Hello world!
                         </h1>
-                        <Image src={logo} alt="Logo" width={100} height={100}/>
+                        <Image src={logo} alt="Logo" width={100} height={100} priority/>
                     </div>
                     <div className="flex-none w-14 h-14">
                         03

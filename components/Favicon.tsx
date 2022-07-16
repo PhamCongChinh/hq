@@ -10,6 +10,7 @@ const Favicon = (): JSX.Element => {
             <meta name="application-name" content="<APP NAME>" />
             <meta name="msapplication-TileColor" content="#ffc40d" />
             <meta name="theme-color" content="#ffffff" />
+            
         </>
     );
 }
