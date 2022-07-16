@@ -2,8 +2,10 @@ import type { NextPage } from 'next'
 
 import type { ReactElement } from 'react'
 import Layout from '../components/Layout'
-//import NestedLayout from '../components/nested-layout'
 import type { NextPageWithLayout } from './_app'
+
+import Image from 'next/image'
+import logo from '../public/images/logo.png'
 
 const Home: NextPageWithLayout = () => {
     return (
@@ -17,6 +19,7 @@ const Home: NextPageWithLayout = () => {
                         <h1 className="text-3xl font-bold">
                             Hello world!
                         </h1>
+                        <Image src={logo} alt="Logo" width={100} height={100}/>
                     </div>
                     <div className="flex-none w-14 h-14">
                         03

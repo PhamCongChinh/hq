@@ -4,8 +4,10 @@
   "/_document": "pages/_document.js",
   "/about": "pages/about.html",
   "/api/hello": "pages/api/hello.js",
+  "/api/user": "pages/api/user.js",
   "/dashboard": "pages/dashboard.html",
   "/": "pages/index.html",
   "/login": "pages/login.html",
+  "/signup": "pages/signup.html",
   "/404": "pages/404.html"
 }
