@@ -1,8 +1,11 @@
+import Link from "next/link"
 
 const Header = () => {
     return(
-        <div className="bg-slate-900 h-8 shadow-md">
-            <h1 className="text-red-700">This is Header</h1>
+        <div className="bg-blue-500 h-8 shadow-md text-white">
+            <Link href={'/'}>Home</Link>
+            <Link href={'/login'}>Login</Link>
+            <Link href={'/dashboard'}>Dashboard</Link>
         </div>
     )
 }

@@ -5,7 +5,7 @@
   "middleware": {
     "/": {
       "env": [
-        "TOKEN_SECRET"
+        "SECRET"
       ],
       "files": [
         "server/edge-runtime-webpack.js",

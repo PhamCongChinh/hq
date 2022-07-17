@@ -1,6 +1,16 @@
 {
   "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/": "pages/index.js"
+  "/_error": "pages/_error.js",
+  "/about": "pages/about.html",
+  "/api/auth/login": "pages/api/auth/login.js",
+  "/api/auth/logout": "pages/api/auth/logout.js",
+  "/api/hello": "pages/api/hello.js",
+  "/api/user": "pages/api/user.js",
+  "/dashboard": "pages/dashboard.html",
+  "/dashboard/user": "pages/dashboard/user.html",
+  "/login": "pages/login.html",
+  "/": "pages/index.html",
+  "/signup": "pages/signup.html",
+  "/404": "pages/404.html"
 }
