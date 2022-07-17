@@ -19,9 +19,13 @@ var external_react_ = __webpack_require__(6689);
 // EXTERNAL MODULE: external "axios"
 var external_axios_ = __webpack_require__(2167);
 var external_axios_default = /*#__PURE__*/__webpack_require__.n(external_axios_);
+// EXTERNAL MODULE: ./node_modules/next/link.js
+var next_link = __webpack_require__(1664);
+var link_default = /*#__PURE__*/__webpack_require__.n(next_link);
 // EXTERNAL MODULE: external "next/router"
 var router_ = __webpack_require__(1853);
 ;// CONCATENATED MODULE: ./components/LayoutDashboard/Header.tsx
+
 
 
 
@@ -37,16 +41,26 @@ const Header = ()=>{
         });
     };
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
-        className: "bg-slate-900 font-bold text-xl py-1 border-b-2",
+        className: "flex justify-between bg-slate-900 font-bold text-sm text-white p-2",
         children: [
-            /*#__PURE__*/ jsx_runtime_.jsx("h1", {
-                className: "text-white",
-                children: "Header"
+            /*#__PURE__*/ jsx_runtime_.jsx("div", {
+                children: /*#__PURE__*/ jsx_runtime_.jsx((link_default()), {
+                    href: "/",
+                    children: "Trang ch\u1EE7"
+                })
             }),
-            /*#__PURE__*/ jsx_runtime_.jsx("button", {
-                onClick: ()=>handlerLogout(),
-                className: "text-white",
-                children: "Logout"
+            /*#__PURE__*/ (0,jsx_runtime_.jsxs)("div", {
+                className: "flex",
+                children: [
+                    /*#__PURE__*/ jsx_runtime_.jsx("p", {
+                        children: "Ng\u01B0\u1EDDi d\xf9ng"
+                    }),
+                    /*#__PURE__*/ jsx_runtime_.jsx("button", {
+                        onClick: ()=>handlerLogout(),
+                        className: "",
+                        children: "\u0110\u0103ng xu\u1EA5t"
+                    })
+                ]
             })
         ]
     });

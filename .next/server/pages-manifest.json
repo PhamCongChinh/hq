@@ -9,8 +9,8 @@
   "/api/user": "pages/api/user.js",
   "/dashboard": "pages/dashboard.html",
   "/dashboard/user": "pages/dashboard/user.html",
-  "/login": "pages/login.html",
   "/": "pages/index.html",
+  "/login": "pages/login.html",
   "/signup": "pages/signup.html",
   "/404": "pages/404.html"
 }
