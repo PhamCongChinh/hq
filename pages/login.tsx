@@ -4,7 +4,6 @@ import { ReactElement, useState } from 'react'
 import Layout from '../components/Layout'
 import { useForm } from "react-hook-form";
 import axios from "axios";
-const jwt = require('jsonwebtoken')
 
 import { useRouter } from "next/router";
 

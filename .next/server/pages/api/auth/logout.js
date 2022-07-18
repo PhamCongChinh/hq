@@ -12,13 +12,6 @@ module.exports = require("cookie");
 
 /***/ }),
 
-/***/ 9344:
-/***/ ((module) => {
-
-module.exports = require("jsonwebtoken");
-
-/***/ }),
-
 /***/ 4917:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
@@ -26,17 +19,17 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ handler)
 /* harmony export */ });
-const { sign  } = __webpack_require__(9344);
 const { serialize  } = __webpack_require__(4802);
 function handler(req, res) {
     const { cookies  } = req;
-    const token = cookies.jwtoken;
+    const token = cookies.accessToken;
+    console.log(token);
     if (!token) {
         return res.json({
             message: "not logged in ..."
         });
     } else {
-        const serialised = serialize("jwtoken", null, {
+        const serialised = serialize("accessToken", null, {
             httpOnly: true,
             secure: "production" !== "development",
             sameSite: "strict",

@@ -32,20 +32,34 @@ var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([_ser
 _service_jwt_sign_verify__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
 
 const { serialize  } = __webpack_require__(4802);
-const secret = process.env.SECRET || "secret";
+const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET || "accessToken";
+const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET || "refreshToken";
 async function handler(req, res) {
     const { username , password  } = req.body;
     if (username === "admin" && password === "admin") {
-        const token = await (0,_service_jwt_sign_verify__WEBPACK_IMPORTED_MODULE_0__/* .sign */ .X)(username, secret);
-        console.log(token);
-        const serialised = serialize("jwtoken", token, {
+        //access token
+        const accessToken = await (0,_service_jwt_sign_verify__WEBPACK_IMPORTED_MODULE_0__/* .sign */ .X)(username, accessTokenSecret);
+        const serialised = serialize("accessToken", accessToken, {
+            httpOnly: true,
+            secure: "production" !== "development",
+            sameSite: "strict",
+            maxAge: 60 * 2,
+            path: "/"
+        });
+        //refresh token
+        const refreshToken = await (0,_service_jwt_sign_verify__WEBPACK_IMPORTED_MODULE_0__/* .sign */ .X)(username, refreshTokenSecret);
+        const serialisedRefresh = serialize("refreshToken", refreshToken, {
             httpOnly: true,
             secure: "production" !== "development",
             sameSite: "strict",
             maxAge: 60 * 60 * 24 * 30,
             path: "/"
         });
-        res.setHeader("Set-Cookie", serialised);
+        console.log(serialisedRefresh);
+        res.setHeader("Set-Cookie", [
+            serialised,
+            serialisedRefresh
+        ]);
         res.status(200).json({
             message: "Success"
         });
@@ -66,9 +80,9 @@ __webpack_async_result__();
 
 __webpack_require__.a(module, async (__webpack_handle_async_dependencies__, __webpack_async_result__) => { try {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "T": () => (/* binding */ verify),
 /* harmony export */   "X": () => (/* binding */ sign)
 /* harmony export */ });
-/* unused harmony export verify */
 /* harmony import */ var jose__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(9369);
 var __webpack_async_dependencies__ = __webpack_handle_async_dependencies__([jose__WEBPACK_IMPORTED_MODULE_0__]);
 jose__WEBPACK_IMPORTED_MODULE_0__ = (__webpack_async_dependencies__.then ? (await __webpack_async_dependencies__)() : __webpack_async_dependencies__)[0];
@@ -84,7 +98,7 @@ async function sign(payload, secret) {
     }).setExpirationTime(exp).setIssuedAt(iat).setNotBefore(iat).sign(new TextEncoder().encode(secret));
 }
 async function verify(token, secret) {
-    const { payload  } = await jwtVerify(token, new TextEncoder().encode(secret));
+    const { payload  } = await (0,jose__WEBPACK_IMPORTED_MODULE_0__.jwtVerify)(token, new TextEncoder().encode(secret));
     return payload;
 }
 

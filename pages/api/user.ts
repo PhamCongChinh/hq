@@ -13,6 +13,8 @@ export default function handler(
     req: NextApiRequest,
     res: NextApiResponse<Data>
 ) {
+    const { refreshToken } = req.body;
+    console.log(refreshToken)
     const data = connection.query('SELECT * FROM user', (err:any, results:Data, fields:any) => {
         console.log("Ket qua: ", results)
         res.status(200).send(results)

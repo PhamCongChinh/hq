@@ -3595,19 +3595,19 @@ async function jwt_sign_verify_verify(token, secret) {
 ;// CONCATENATED MODULE: ./middleware.ts
 
 
-const secret = process.env.SECRET || "secret";
+const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET || "secret";
 // This function can be marked `async` if using `await` inside
 async function middleware(req) {
     //const response = NextResponse.next()
     //const loginUrl = new URL('/login', request.url)
-    const jwt = req.cookies.get("jwtoken");
+    const accessToken = req.cookies.get("accessToken");
     if (req.nextUrl.pathname.startsWith("/dashboard")) {
-        if (jwt === undefined) {
+        if (accessToken === undefined) {
             req.nextUrl.pathname = "/login";
             return server.NextResponse.redirect(req.nextUrl);
         }
         try {
-            await jwt_sign_verify_verify(jwt, secret);
+            await jwt_sign_verify_verify(accessToken, accessTokenSecret);
             return server.NextResponse.next();
         } catch (error) {
             req.nextUrl.pathname = "/login";

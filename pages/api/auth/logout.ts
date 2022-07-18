@@ -1,6 +1,5 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next'
-const {sign} = require('jsonwebtoken')
 const {serialize} = require('cookie')
 type Data = {
     message: string
@@ -12,13 +11,14 @@ export default function handler(
 ) {
     const { cookies } = req
 
-    const token = cookies.jwtoken
+    const token = cookies.accessToken
+    console.log(token)
 
     if (!token) {
         return res.json({message:"not logged in ..."})
     }else{
 
-        const serialised = serialize("jwtoken", null, {
+        const serialised = serialize("accessToken", null, {
             httpOnly: true,
             secure: process.env.NODE_ENV !== "development",
             sameSite: "strict",

@@ -44,6 +44,8 @@ const connection = mysql2.createConnection({
 ;// CONCATENATED MODULE: ./pages/api/user.ts
 
 function handler(req, res) {
+    const { refreshToken  } = req.body;
+    console.log(refreshToken);
     const data = db.query("SELECT * FROM user", (err, results, fields)=>{
         console.log("Ket qua: ", results);
         res.status(200).send(results);
