@@ -7,13 +7,15 @@ import axios from "axios";
 
 import { useRouter } from "next/router";
 
+import { login } from "../service/auth";
+
 const Login: NextPageWithLayout = () => {
     const router = useRouter()
     const [message, setMessage] = useState<string>('You are not logged in')
 
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = async (data:object) => {
-        await axios.post('/api/auth/login', data)
+    const onSubmit = async (data:JSON) => {
+        login(data)
         .then(res => {
             console.log(res.data)
             if (res.status === 200) {

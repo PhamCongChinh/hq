@@ -12,7 +12,6 @@ export default function handler(
     const { cookies } = req
 
     const token = cookies.accessToken
-    console.log(token)
 
     if (!token) {
         return res.json({message:"not logged in ..."})

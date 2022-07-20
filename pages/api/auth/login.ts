@@ -3,13 +3,14 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { sign } from "../../../service/jwt_sign_verify"
 const { serialize } = require('cookie')
 
+import connection from '../../../db'
+
 type Data = {
     message: string
 }
 
 const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET || "accessToken"
 const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET || "refreshToken"
-
 
 export default async function handler(
     req: NextApiRequest,
@@ -35,11 +36,12 @@ export default async function handler(
             maxAge: 60 * 60 * 24 * 30, //30 days
             path: "/"
         })
-        console.log(serialisedRefresh)
-        res.setHeader('Set-Cookie', [
-            serialised,
-            serialisedRefresh
-        ])
+        
+        connection.query('UPDATE user SET refreshToken = "'+ refreshToken +'" where username = "admin"', () => {
+            res.status(200)
+        })
+
+        res.setHeader('Set-Cookie', serialised)
         res.status(200).json({ message:"Success" })
     }else{
         res.status(401).json({ message:"Invalid credentials!" })
