@@ -1,8 +1,7 @@
 import React, { ReactNode } from 'react';
-import Head from 'next/head';
-import Link from 'next/link';
 import Header from './Header'
 import Footer from './Footer'
+import Sidebar from './Sidebar';
 
 interface Props {
     children: React.ReactNode,
@@ -16,30 +15,15 @@ const Layout = ({
     <>
         <div className='flex flex-row'>
             <div className="basis-2/12 bg-white shadow-xl">
-                <h1 className='text-center font-bold text-xl py-1 border-b-2'>Admin</h1>
-                <ul className="list-disc text-black">
-                    <li className='pl-3'>Now this is </li>
-                    <li className='pl-3'>Now this is </li>
-                    <li className='pl-3'>Now this is </li>
-                    <li className='pl-3'>Now this is </li>
-                    <li className='pl-3'>Now this is </li>
-                    <li className='pl-3'>Now this is </li>
-                    <li className='pl-3'>Now this is </li>
-                    <li className='pl-3'>Now this is </li>
-                    <li className='pl-3'>Now this is </li>
-                    <li className='pl-3'>Now this is </li>
-                </ul>
+                <Sidebar/>
             </div>
-            <div className="basis-10/12">
+            <div className="basis-10/12 bg-slate-100">
                 <Header/>
-                <div className='bg-slate-100'>
+                <div>
                     {children}
                 </div>
-                
             </div>
         </div>
-        
-        
         <Footer/>
     </>
 )

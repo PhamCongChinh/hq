@@ -3,7 +3,6 @@ import Link from "next/link"
 import { useRouter } from "next/router"
 import { useState } from "react"
 const Header = () => {
-    
     const router = useRouter()
     const handlerLogout = async () => {
         await axios.get('/api/auth/logout')
@@ -20,6 +19,7 @@ const Header = () => {
         <div className="flex justify-between bg-slate-900 font-bold text-sm text-white p-2">
             <div>
                 <Link href={'/'}>Trang chủ</Link>
+                <Link href={'/dashboard'}>Dashboard</Link>
             </div>
             <div className="flex">
                 <p>Người dùng</p>

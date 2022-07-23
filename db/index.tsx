@@ -1,25 +1,13 @@
-const mysql2 = require('mysql2')
+import mysql2 from 'mysql2/promise'
 
-interface Data {
-    query_string: string,
-    values: []
-}
-
-const connection = mysql2.createConnection({
+const pool = mysql2.createPool({
     host : process.env.MYSQL_HOST,
     user : process.env.MYSQL_USER,
     password : process.env.MYSQL_PASS,
-    database : process.env.MYSQL_NAME
+    database : process.env.MYSQL_NAME,
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 1
 })
 
-/*async function sql(query_string: string, values: []) {
-    try {
-        const result = await connection.query(query_string, values)
-        await connection.end()
-        return result
-    } catch (error:any) {
-        throw Error(error.message)
-    }
-}*/
-
-export default connection
+export default pool

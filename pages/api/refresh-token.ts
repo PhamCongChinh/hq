@@ -2,25 +2,24 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { verify, sign } from '../../service/jwt_sign_verify';
 const { serialize } = require('cookie')
 const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET || "refreshToken"
-
-import connection from '../../db'
-import { type } from 'os';
+const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET || "secret";
+import pool from '../../db'
 
 type Data = {
-    refreshToken: string
+    payload: string
 }
-
 export default async function handler(
     req: NextApiRequest,
-    res: NextApiResponse<Data>
+    res: NextApiResponse
 ) {
-    connection.query('SELECT * FROM `user` WHERE `username` = "admin"', (results:Data) => {
-        console.log(results)
-    })
-    /*if (refreshToken) {
+    const [ rows ] = await pool.query('SELECT refreshToken FROM `user` WHERE `username` = "admin"')
+    const refreshToken = JSON.stringify(rows)
+    console.log(refreshToken)
+    if (refreshToken) {
         try {
             const { payload } = await verify(refreshToken, refreshTokenSecret)
-            const newToken = await sign(payload, refreshTokenSecret)
+            console.log(payload)
+            const newToken = await sign(payload as string, accessTokenSecret)
             const serialised = serialize("accessToken", newToken, {
                 httpOnly: true,
                 secure: process.env.NODE_ENV !== "development",
@@ -29,14 +28,23 @@ export default async function handler(
                 path: "/"
             })
             res.setHeader('Set-Cookie', serialised)
-            res.status(200)
+            return res.send("refresh token is refresh")
         } catch (error) {
-            res.status(403).json({
+            return res.status(403).json({
                 message: 'Invalid refresh token',
             })
         }
-    }*/
+    }else{
+        console.log("Không tồn tại")
+    }
 
-    res.status(200).json({refreshToken:'asd'})
+    return res.status(200).json({refreshToken:'asd'})
     //res.status(200).json({ refreshToken })
 }
+/*connection.connect((err:string) => {
+        if (err) throw err;
+        connection.query('SELECT refreshToken FROM `user` WHERE `username` = "admin"', (err:string, result:string, fields:string) => {
+            if (err) throw err;
+            console.log(result[0])
+        })
+    })*/

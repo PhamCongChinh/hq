@@ -2,22 +2,25 @@ import { NextPage } from "next";
 import type { NextPageWithLayout } from './_app'
 import { ReactElement, useState } from 'react'
 import Layout from '../components/Layout'
-import { useForm } from "react-hook-form";
-import axios from "axios";
+import { useForm, SubmitHandler } from "react-hook-form"
 
 import { useRouter } from "next/router";
 
 import { login } from "../service/auth";
 
+type Login = {
+    username: string,
+    password: string
+}
+
 const Login: NextPageWithLayout = () => {
     const router = useRouter()
     const [message, setMessage] = useState<string>('You are not logged in')
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = async (data:JSON) => {
+    const { register, handleSubmit } = useForm<Login>()
+    const onSubmit: SubmitHandler<Login> = async (data:object) => {
         login(data)
         .then(res => {
-            console.log(res.data)
             if (res.status === 200) {
                 router.push("/dashboard")
             }

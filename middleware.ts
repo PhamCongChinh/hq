@@ -21,5 +21,19 @@ export default async function middleware(req: NextRequest) {
             return NextResponse.redirect(req.nextUrl)
         }   
     }
+    if (req.nextUrl.pathname.startsWith('/login')) {
+        if (accessToken === undefined) {
+            return NextResponse.next()
+        }
+        try {
+            await verify(accessToken, accessTokenSecret)
+            req.nextUrl.pathname = "/dashboard"
+            return NextResponse.redirect(req.nextUrl)
+        } catch (error) {
+            //req.nextUrl.pathname = "/login"
+            //return NextResponse.redirect(req.nextUrl)
+            return NextResponse.next()
+        }   
+    }
     return NextResponse.next()
 }

@@ -9,13 +9,17 @@ import logo from '../public/images/logo.png'
 
 const Home: NextPageWithLayout = () => {
     return (
-            <main>
-                <div className="flex justify-center">
-                    <div className="grow h-14 justify-center">
-                        <Image src={logo} alt="Logo" width={100} height={100} priority/>
+        <main>
+            <div className="flex">
+                <div className="grow h-12 justify-center">
+                    <div className="divide-y divide-dashed">
+                        <div>01</div>
+                        <div>02</div>
+                        <div>03</div>
                     </div>
                 </div>
-            </main>
+            </div>
+        </main>
     )
 }
 

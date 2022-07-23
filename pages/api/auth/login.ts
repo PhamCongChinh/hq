@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { sign } from "../../../service/jwt_sign_verify"
 const { serialize } = require('cookie')
 
-import connection from '../../../db'
+import pool from '../../../db'
 
 type Data = {
     message: string
@@ -24,7 +24,7 @@ export default async function handler(
             httpOnly: true,
             secure: process.env.NODE_ENV !== "development",
             sameSite: "strict",
-            maxAge: 60 * 2,
+            maxAge: 60 * 60 * 24,
             path: "/"
         })
         //refresh token
@@ -37,10 +37,8 @@ export default async function handler(
             path: "/"
         })
         
-        connection.query('UPDATE user SET refreshToken = "'+ refreshToken +'" where username = "admin"', () => {
-            res.status(200)
-        })
-
+        const result = pool.query('UPDATE user SET refreshToken = "'+ refreshToken +'" where username = "admin"')
+        console.log('Update success', result)
         res.setHeader('Set-Cookie', serialised)
         res.status(200).json({ message:"Success" })
     }else{

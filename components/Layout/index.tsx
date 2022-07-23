@@ -13,8 +13,11 @@ const Layout = ({
     title = 'TypeScript Next.js Stripe Example',
 }: Props) => (
     <>
-        <Header />
-        {children}
+        <Header/>
+        <div className='container mx-auto'>
+            {children}
+        </div>
+        
     </>
 )
 
