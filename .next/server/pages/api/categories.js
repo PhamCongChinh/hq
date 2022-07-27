@@ -38,14 +38,22 @@ const pool = promise_default().createPool({
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ handler)
+/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var _db__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4742);
 
-async function handler(req, res) {
-    const [rows, fields] = await _db__WEBPACK_IMPORTED_MODULE_0__/* ["default"].query */ .Z.query("SELECT * FROM category");
-    return res.status(200).json(rows);
+const handler = async (req, res)=>{
+    if (req.method === "GET") {
+        const [rows, fields] = await _db__WEBPACK_IMPORTED_MODULE_0__/* ["default"].query */ .Z.query("SELECT * FROM category");
+        return res.status(200).json(rows);
+    }
+    if (req.method === "POST") {
+        const query = 'INSERT INTO category (name, slug, image) VALUES ("' + req.body.name + '", "' + req.body.slug + '", "' + req.body.file + '")';
+        await _db__WEBPACK_IMPORTED_MODULE_0__/* ["default"].query */ .Z.query(query);
+        return res.status(204);
+    }
 };
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (handler);
 
 
 /***/ })

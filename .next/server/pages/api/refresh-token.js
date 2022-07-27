@@ -77,7 +77,7 @@ async function handler(req, res) {
                 httpOnly: true,
                 secure: "production" !== "development",
                 sameSite: "strict",
-                maxAge: 60 * 2,
+                maxAge: 60 * 60 * 24 * 30,
                 path: "/"
             });
             res.setHeader("Set-Cookie", serialised);

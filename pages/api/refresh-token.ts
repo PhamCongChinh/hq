@@ -24,7 +24,7 @@ export default async function handler(
                 httpOnly: true,
                 secure: process.env.NODE_ENV !== "development",
                 sameSite: "strict",
-                maxAge: 60 * 2,
+                maxAge: 60 * 60 * 24 * 30,
                 path: "/"
             })
             res.setHeader('Set-Cookie', serialised)

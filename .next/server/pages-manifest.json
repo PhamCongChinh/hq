@@ -1,14 +1,15 @@
 {
-  "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
+  "/_app": "pages/_app.js",
   "/_document": "pages/_document.js",
   "/about": "pages/about.html",
   "/api/auth/login": "pages/api/auth/login.js",
   "/api/auth/logout": "pages/api/auth/logout.js",
-  "/api/categories/create": "pages/api/categories/create.js",
+  "/api/categories/[id]": "pages/api/categories/[id].js",
   "/api/categories": "pages/api/categories.js",
   "/api/hello": "pages/api/hello.js",
   "/api/refresh-token": "pages/api/refresh-token.js",
+  "/api/upload-file": "pages/api/upload-file.js",
   "/api/users/create": "pages/api/users/create.js",
   "/api/users": "pages/api/users.js",
   "/dashboard/categories/create": "pages/dashboard/categories/create.html",
@@ -17,8 +18,8 @@
   "/dashboard/templateAdmin": "pages/dashboard/templateAdmin.html",
   "/dashboard/users/create": "pages/dashboard/users/create.html",
   "/dashboard/users": "pages/dashboard/users.html",
-  "/": "pages/index.html",
   "/login": "pages/login.html",
+  "/": "pages/index.html",
   "/signup": "pages/signup.html",
   "/404": "pages/404.html"
 }

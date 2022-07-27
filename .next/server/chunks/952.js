@@ -1,6 +1,6 @@
 "use strict";
-exports.id = 473;
-exports.ids = [473];
+exports.id = 952;
+exports.ids = [952];
 exports.modules = {
 
 /***/ 6007:

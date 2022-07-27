@@ -31,7 +31,7 @@ const Login: NextPageWithLayout = () => {
     };
 
     return (
-        <div className="flex justify-center">
+        <div className="flex justify-center items-stretch self-center">
             <form className="w-96 bg-slate-100 shadow-xl" onSubmit={handleSubmit(onSubmit)}>
                 <h1 className="text-center text-xl py-3">Đăng nhập</h1>
                 <div className="md:flex md:items-center mb-6">

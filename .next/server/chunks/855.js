@@ -30,6 +30,8 @@ var image_default = /*#__PURE__*/__webpack_require__.n(next_image);
 
 
 const Header = ()=>{
+    //const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
+    //console.log(publicRuntimeConfig.staticFolder)
     return /*#__PURE__*/ (0,jsx_runtime_.jsxs)("header", {
         children: [
             /*#__PURE__*/ jsx_runtime_.jsx("nav", {

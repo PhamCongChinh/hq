@@ -1,7 +1,10 @@
 import Link from "next/link"
 import Image from 'next/image'
+import getConfig from 'next/config'
 import logo from '../../public/images/logo.png'
 const Header = () => {
+    //const { serverRuntimeConfig, publicRuntimeConfig } = getConfig()
+    //console.log(publicRuntimeConfig.staticFolder)
     return(
         <header>
             <nav className="bg-slate-200">
