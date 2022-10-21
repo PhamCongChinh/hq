@@ -2,14 +2,14 @@ import pool from "../config/dbConfig"
 import { Product } from "../lib/interfaces/IProduct"
 
 const getAll = async () => {
-    const [rows] = await pool.query('SELECT * FROM product')
+    const [rows] = await pool.query('SELECT id, id_category, name, slug, image_link, image_list, price, content, discount FROM product')
     return rows
 }
 
-/*const getOne = async (id:any) => {
-    const [row] = await pool.query('SELECT * FROM category WHERE id = '+ id +'')
+const getOne = async (id:any) => {
+    const [row] = await pool.query('SELECT * FROM product WHERE id = '+ id +'')
     return row
-}*/
+}
 
 const create = async (item: Product) => {
     const query = 'INSERT INTO product (id_category, name, slug, image_link, image_list, price, content, discount, created, status) VALUES ("'+ item.id_category +'", "'+ item.name +'", "'+ item.slug +'", "'+ item.image_link +'", "'+ item.image_list +'", "'+ item.price +'", "'+ item.content +'", "'+ item.discount +'", "'+ item.created +'", "'+ item.status +'")'
@@ -29,7 +29,7 @@ const create = async (item: Product) => {
 
 export const productRepo = {
     getAll,
-    //getOne,
+    getOne,
     create,
     //update,
     //remove

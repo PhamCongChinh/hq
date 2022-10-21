@@ -1,38 +1,26 @@
 import type { ReactElement } from 'react'
 import Layout from '../components/Layout'
 import type { NextPageWithLayout } from './_app'
-import Image from 'next/image'
-import { Category } from '../lib/interfaces'
+import { Product } from '../lib/interfaces/IProduct'
 
-//Icon
-//import { getAll } from '../service/category'
 import { GetStaticProps } from 'next'
 import axios from 'axios'
+import ListProducts from '../components/ListProducts'
 
 type Props = {
-    items: Category[],
+    items: Product[],
 }
 
 const Home: NextPageWithLayout<Props> = ({items}: Props) => {
     return (
         <div className=''>
-            <div className='grid grid-cols-4'>
-                {items.map((item) => {
-                    return <div key={item.id} className='border cursor-pointer'>
-                        <div className='relative h-64'>
-                            <Image src={`/images/${item.image}`} alt={item.name} priority layout='fill'/>
-                        </div>
-                        <div><h1 className='text-lg font-semibold p-2'>{item.name}</h1></div>
-                    </div>
-                })}
-            </div>
+            <ListProducts data={items}/>
         </div>
     )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-    //const items = await getAll()
-    const result = await axios.get('http://localhost:3000/api/categories')
+    const result = await axios.get('http://localhost:3000/api/products')
     const items = result.data
     if (!items) {
         return {

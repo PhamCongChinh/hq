@@ -11,7 +11,31 @@ const ProductCreate: NextPageWithLayout = () => {
     const { register, handleSubmit } = useForm<Product>()
     const { data, mutate, error } = useSWR(`/api/categories`, fetcher)
     const createItem: SubmitHandler<Product> = async (data) => {
-        await axios.post('/api/products', data)
+        const formData = new FormData()
+        const image = data.image_link[0]
+        if (data.image_link.length > 0) {
+            formData.append("image", image)
+        }
+        console.log(image)
+        await axios.post('/api/upload-file', formData).then( res => {
+            const body = {
+                id_category: data.id_category,
+                name: data.name,
+                slug: data.slug,
+                image_link: res.data,
+                image_list: data.image_list,
+                price: data.price,
+                content: data.content,
+                discount: data.discount,
+                created: data.created,
+                status: data.status
+            }
+            axios.post('/api/products', body)
+            mutate()
+        })
+
+
+        //await axios.post('/api/products', data)
     }
     return (
         <div className="w-full">
@@ -60,7 +84,7 @@ const ProductCreate: NextPageWithLayout = () => {
                     </div>
                     <div className="flex flex-row my-2">
                         <label htmlFor="" className="basis-1/4">Nội dung</label>
-                        <input type="text" className="basis-3/4 border-2" placeholder="Nội dung" {...register("content")} />
+                        <textarea className="basis-3/4 border-2" placeholder="Nội dung" rows={10} {...register("content")} />
                     </div>
                     <div className="flex flex-row my-2">
                         <label htmlFor="" className="basis-1/4">Chiết khấu</label>
