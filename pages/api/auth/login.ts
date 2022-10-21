@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 import { sign } from "../../../service/jwt_sign_verify"
 const { serialize } = require('cookie')
 
-import pool from '../../../db'
+import pool from '../../../config/dbConfig'
 
 type Data = {
     message: string

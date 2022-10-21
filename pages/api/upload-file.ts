@@ -24,6 +24,6 @@ const post = async (req: NextApiRequest, res: NextApiResponse) => {
         uploadDir: uploadFolder,
     })
     form.parse(req, async (err: any, fields: any, files: any) => {
-        return res.status(201).send(files.file.newFilename)
+        return res.status(201).send(files.image.newFilename)
     })
 }

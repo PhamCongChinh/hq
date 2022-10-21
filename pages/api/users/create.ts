@@ -1,5 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
-import pool from '../../../db'
+import pool from '../../../config/dbConfig'
 export default async function handler(
     req: NextApiRequest,
     res: NextApiResponse

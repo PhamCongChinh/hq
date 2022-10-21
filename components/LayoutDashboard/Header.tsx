@@ -2,6 +2,11 @@ import axios from "axios"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import { useState } from "react"
+
+
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars, faUser } from "@fortawesome/free-solid-svg-icons"
+
 const Header = () => {
     const router = useRouter()
     const handlerLogout = async () => {
@@ -18,12 +23,14 @@ const Header = () => {
     return(
         <div className="flex justify-between bg-slate-900 font-bold text-sm text-white p-2">
             <div>
-                <Link href={'/'}>Trang chủ</Link>
-                <Link href={'/dashboard'}>Dashboard</Link>
+                <FontAwesomeIcon icon={faBars} />
             </div>
             <div className="flex">
-                <p>Người dùng</p>
-                <button onClick={() => handlerLogout()} className="">Đăng xuất</button>
+                <div>
+                    <FontAwesomeIcon icon={faUser} />
+                </div>
+
+                <button onClick={() => handlerLogout()} className="pl-3">Đăng xuất</button>
             </div>
             
         </div>

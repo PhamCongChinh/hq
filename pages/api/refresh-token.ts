@@ -3,7 +3,7 @@ import { verify, sign } from '../../service/jwt_sign_verify';
 const { serialize } = require('cookie')
 const refreshTokenSecret = process.env.REFRESH_TOKEN_SECRET || "refreshToken"
 const accessTokenSecret = process.env.ACCESS_TOKEN_SECRET || "secret";
-import pool from '../../db'
+import pool from '../../config/dbConfig'
 
 type Data = {
     payload: string

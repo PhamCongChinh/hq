@@ -23,12 +23,6 @@ const nextConfig = {
         // You can, for example, get the latest git commit hash here
         return 'my-build-id'
     },*/
-    webpack5: true,
-    webpack: (config) => {
-    config.resolve.fallback = { fs: false };
-
-    return config;
-  },
     
 }
 

@@ -5,7 +5,7 @@ import type { NextPageWithLayout } from '../../_app'
 import { urlGetAllUsers } from "../../../lib/api"
 import useSWR from 'swr'
 import { fetcher } from "../../../lib/fetcher"
-import { IUserResponse } from "../../../lib/interfaces"
+//import { IUserResponse } from "../../../lib/interfaces"
 
 const User: NextPageWithLayout = () => {
 
@@ -15,9 +15,44 @@ const User: NextPageWithLayout = () => {
     if (!data) return <h1>Loading...</h1>;
 
     return (
-        <div>
-            <div className="overflow-x-auto relative">
-                <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <div className="w-full">
+            <table className="table-fixed">
+                <thead>
+                    <tr>
+                        <th className="w-1/4">Username</th>
+                        <th className="w-1/4">Password</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {data ? (
+                        data.map((user:any) => {
+                            return(
+                                <tr key={user.id}>
+                                    <td className="border px-4 py-2">{user.username}</td>
+                                    <td className="border px-4 py-2">{user.password}</td>
+                                </tr>
+                            )
+                        })
+                    ) : (
+                        <div>Đang tải ...</div>
+                    )}
+                </tbody>
+            </table>
+        </div>
+    )
+}
+User.getLayout = function getLayout(page: ReactElement) {
+    return (
+        <Layout>
+            {page}
+        </Layout>
+    )
+}
+export default User
+
+/**
+ * <div className="">
+                <table className="text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
                         <tr>
                             <th scope="col" className="py-3 px-6">
@@ -54,14 +89,4 @@ const User: NextPageWithLayout = () => {
                     </tbody>
                 </table>
             </div>
-        </div>
-    )
-}
-User.getLayout = function getLayout(page: ReactElement) {
-    return (
-        <Layout>
-            {page}
-        </Layout>
-    )
-}
-export default User
+ */

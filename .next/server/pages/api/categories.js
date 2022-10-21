@@ -1,60 +1,95 @@
 "use strict";
+/*
+ * ATTENTION: An "eval-source-map" devtool has been used.
+ * This devtool is neither made for production nor for readable output files.
+ * It uses "eval()" calls to create a separate source file with attached SourceMaps in the browser devtools.
+ * If you are trying to read the output file, select a different devtool (https://webpack.js.org/configuration/devtool/)
+ * or disable the default devtool with "devtool: false".
+ * If you are looking for production-ready output files, see mode: "production" (https://webpack.js.org/configuration/mode/).
+ */
 (() => {
 var exports = {};
-exports.id = 957;
-exports.ids = [957];
+exports.id = "pages/api/categories";
+exports.ids = ["pages/api/categories"];
 exports.modules = {
 
-/***/ 4742:
-/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+/***/ "mysql2/promise":
+/*!*********************************!*\
+  !*** external "mysql2/promise" ***!
+  \*********************************/
+/***/ ((module) => {
 
-
-// EXPORTS
-__webpack_require__.d(__webpack_exports__, {
-  "Z": () => (/* binding */ db)
-});
-
-;// CONCATENATED MODULE: external "mysql2/promise"
-const promise_namespaceObject = require("mysql2/promise");
-var promise_default = /*#__PURE__*/__webpack_require__.n(promise_namespaceObject);
-;// CONCATENATED MODULE: ./db/index.tsx
-
-const pool = promise_default().createPool({
-    host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASS,
-    database: process.env.MYSQL_NAME,
-    waitForConnections: true,
-    connectionLimit: 10,
-    queueLimit: 1
-});
-/* harmony default export */ const db = (pool);
-
+module.exports = require("mysql2/promise");
 
 /***/ }),
 
-/***/ 7733:
+/***/ "fs":
+/*!*********************!*\
+  !*** external "fs" ***!
+  \*********************/
+/***/ ((module) => {
+
+module.exports = require("fs");
+
+/***/ }),
+
+/***/ "path":
+/*!***********************!*\
+  !*** external "path" ***!
+  \***********************/
+/***/ ((module) => {
+
+module.exports = require("path");
+
+/***/ }),
+
+/***/ "(api)/./config/dbConfig/index.tsx":
+/*!***********************************!*\
+  !*** ./config/dbConfig/index.tsx ***!
+  \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
-__webpack_require__.r(__webpack_exports__);
-/* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
-/* harmony export */ });
-/* harmony import */ var _db__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(4742);
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var mysql2_promise__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! mysql2/promise */ \"mysql2/promise\");\n/* harmony import */ var mysql2_promise__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(mysql2_promise__WEBPACK_IMPORTED_MODULE_0__);\n\nconst pool = mysql2_promise__WEBPACK_IMPORTED_MODULE_0___default().createPool({\n    host: process.env.MYSQL_HOST,\n    user: process.env.MYSQL_USER,\n    password: process.env.MYSQL_PASS,\n    database: process.env.MYSQL_NAME,\n    waitForConnections: true,\n    connectionLimit: 10,\n    queueLimit: 1\n});\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (pool);\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9jb25maWcvZGJDb25maWcvaW5kZXgudHN4LmpzIiwibWFwcGluZ3MiOiI7Ozs7OztBQUFtQztBQUVuQyxNQUFNQyxJQUFJLEdBQUdELGdFQUFpQixDQUFDO0lBQzNCRyxJQUFJLEVBQUdDLE9BQU8sQ0FBQ0MsR0FBRyxDQUFDQyxVQUFVO0lBQzdCQyxJQUFJLEVBQUdILE9BQU8sQ0FBQ0MsR0FBRyxDQUFDRyxVQUFVO0lBQzdCQyxRQUFRLEVBQUdMLE9BQU8sQ0FBQ0MsR0FBRyxDQUFDSyxVQUFVO0lBQ2pDQyxRQUFRLEVBQUdQLE9BQU8sQ0FBQ0MsR0FBRyxDQUFDTyxVQUFVO0lBQ2pDQyxrQkFBa0IsRUFBRSxJQUFJO0lBQ3hCQyxlQUFlLEVBQUUsRUFBRTtJQUNuQkMsVUFBVSxFQUFFLENBQUM7Q0FDaEIsQ0FBQztBQUVGLGlFQUFlZCxJQUFJIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vdGhpZXRiaWhxLy4vY29uZmlnL2RiQ29uZmlnL2luZGV4LnRzeD8xMWE0Il0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBteXNxbDIgZnJvbSAnbXlzcWwyL3Byb21pc2UnXHJcblxyXG5jb25zdCBwb29sID0gbXlzcWwyLmNyZWF0ZVBvb2woe1xyXG4gICAgaG9zdCA6IHByb2Nlc3MuZW52Lk1ZU1FMX0hPU1QsXHJcbiAgICB1c2VyIDogcHJvY2Vzcy5lbnYuTVlTUUxfVVNFUixcclxuICAgIHBhc3N3b3JkIDogcHJvY2Vzcy5lbnYuTVlTUUxfUEFTUyxcclxuICAgIGRhdGFiYXNlIDogcHJvY2Vzcy5lbnYuTVlTUUxfTkFNRSxcclxuICAgIHdhaXRGb3JDb25uZWN0aW9uczogdHJ1ZSxcclxuICAgIGNvbm5lY3Rpb25MaW1pdDogMTAsXHJcbiAgICBxdWV1ZUxpbWl0OiAxXHJcbn0pXHJcblxyXG5leHBvcnQgZGVmYXVsdCBwb29sIl0sIm5hbWVzIjpbIm15c3FsMiIsInBvb2wiLCJjcmVhdGVQb29sIiwiaG9zdCIsInByb2Nlc3MiLCJlbnYiLCJNWVNRTF9IT1NUIiwidXNlciIsIk1ZU1FMX1VTRVIiLCJwYXNzd29yZCIsIk1ZU1FMX1BBU1MiLCJkYXRhYmFzZSIsIk1ZU1FMX05BTUUiLCJ3YWl0Rm9yQ29ubmVjdGlvbnMiLCJjb25uZWN0aW9uTGltaXQiLCJxdWV1ZUxpbWl0Il0sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(api)/./config/dbConfig/index.tsx\n");
 
-const handler = async (req, res)=>{
-    if (req.method === "GET") {
-        const [rows, fields] = await _db__WEBPACK_IMPORTED_MODULE_0__/* ["default"].query */ .Z.query("SELECT * FROM category");
-        return res.status(200).json(rows);
-    }
-    if (req.method === "POST") {
-        const query = 'INSERT INTO category (name, slug, image) VALUES ("' + req.body.name + '", "' + req.body.slug + '", "' + req.body.file + '")';
-        await _db__WEBPACK_IMPORTED_MODULE_0__/* ["default"].query */ .Z.query(query);
-        return res.status(204);
-    }
-};
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (handler);
+/***/ }),
 
+/***/ "(api)/./pages/api/categories/index.ts":
+/*!***************************************!*\
+  !*** ./pages/api/categories/index.ts ***!
+  \***************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var _repository__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../repository */ \"(api)/./repository/index.ts\");\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! fs */ \"fs\");\n/* harmony import */ var fs__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(fs__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! path */ \"path\");\n/* harmony import */ var path__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(path__WEBPACK_IMPORTED_MODULE_2__);\n\n\n\nconst handler = async (req, res)=>{\n    const { id , name , slug , image  } = req.body;\n    console.log(req.body);\n    if (req.method === \"GET\") {\n        const data = await _repository__WEBPACK_IMPORTED_MODULE_0__.categoryRepo.getAll();\n        return res.status(200).json(data);\n    }\n    if (req.method === \"POST\") {\n        await _repository__WEBPACK_IMPORTED_MODULE_0__.categoryRepo.create(name, slug, image);\n        return res.status(204);\n    }\n    if (req.method === \"PUT\") {\n        console.log(req.body.imageOld);\n        if (req.body.imageOld !== \"\") {\n            deleteFromFolder(req.body.imageOld);\n        }\n        await _repository__WEBPACK_IMPORTED_MODULE_0__.categoryRepo.update(id, name, slug, image);\n        return res.status(200);\n    }\n    if (req.method === \"DELETE\") {\n        deleteFromFolder(image);\n        _repository__WEBPACK_IMPORTED_MODULE_0__.categoryRepo.remove(JSON.stringify(id));\n        return res.status(200).json(\"Deleted\");\n    }\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (handler);\nconst deleteFromFolder = async (image)=>{\n    const imagePath = path__WEBPACK_IMPORTED_MODULE_2___default().join(process.cwd(), \"public\", \"images\", image);\n    return fs__WEBPACK_IMPORTED_MODULE_1___default().unlinkSync(imagePath);\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9wYWdlcy9hcGkvY2F0ZWdvcmllcy9pbmRleC50cy5qcyIsIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7QUFDa0Q7QUFDL0I7QUFDSTtBQUN2QixNQUFNRyxPQUFPLEdBQUcsT0FBT0MsR0FBbUIsRUFBRUMsR0FBb0IsR0FBSztJQUVqRSxNQUFNLEVBQUNDLEVBQUUsR0FBRUMsSUFBSSxHQUFFQyxJQUFJLEdBQUVDLEtBQUssR0FBQyxHQUFHTCxHQUFHLENBQUNNLElBQUk7SUFDeENDLE9BQU8sQ0FBQ0MsR0FBRyxDQUFDUixHQUFHLENBQUNNLElBQUksQ0FBQztJQUVyQixJQUFJTixHQUFHLENBQUNTLE1BQU0sS0FBSyxLQUFLLEVBQUU7UUFDdEIsTUFBTUMsSUFBSSxHQUFHLE1BQU1kLDREQUFtQixFQUFFO1FBQ3hDLE9BQU9LLEdBQUcsQ0FBQ1csTUFBTSxDQUFDLEdBQUcsQ0FBQyxDQUFDQyxJQUFJLENBQUNILElBQUksQ0FBQztLQUNwQztJQUVELElBQUlWLEdBQUcsQ0FBQ1MsTUFBTSxLQUFLLE1BQU0sRUFBRTtRQUN2QixNQUFNYiw0REFBbUIsQ0FBQ08sSUFBSSxFQUFFQyxJQUFJLEVBQUVDLEtBQUssQ0FBQztRQUM1QyxPQUFPSixHQUFHLENBQUNXLE1BQU0sQ0FBQyxHQUFHLENBQUM7S0FDekI7SUFFRCxJQUFHWixHQUFHLENBQUNTLE1BQU0sS0FBSyxLQUFLLEVBQUU7UUFDckJGLE9BQU8sQ0FBQ0MsR0FBRyxDQUFDUixHQUFHLENBQUNNLElBQUksQ0FBQ1MsUUFBUSxDQUFDO1FBQzlCLElBQUdmLEdBQUcsQ0FBQ00sSUFBSSxDQUFDUyxRQUFRLEtBQUssRUFBRSxFQUFDO1lBQ3hCQyxnQkFBZ0IsQ0FBQ2hCLEdBQUcsQ0FBQ00sSUFBSSxDQUFDUyxRQUFRLENBQUM7U0FDdEM7UUFDRCxNQUFNbkIsNERBQW1CLENBQUNNLEVBQUUsRUFBRUMsSUFBSSxFQUFFQyxJQUFJLEVBQUVDLEtBQUssQ0FBQztRQUNoRCxPQUFPSixHQUFHLENBQUNXLE1BQU0sQ0FBQyxHQUFHLENBQUM7S0FDekI7SUFFRCxJQUFJWixHQUFHLENBQUNTLE1BQU0sS0FBSyxRQUFRLEVBQUU7UUFDekJPLGdCQUFnQixDQUFDWCxLQUFLLENBQUM7UUFDdkJULDREQUFtQixDQUFDdUIsSUFBSSxDQUFDQyxTQUFTLENBQUNsQixFQUFFLENBQUMsQ0FBQztRQUN2QyxPQUFPRCxHQUFHLENBQUNXLE1BQU0sQ0FBQyxHQUFHLENBQUMsQ0FBQ0MsSUFBSSxDQUFDLFNBQVMsQ0FBQztLQUN6QztDQUVKO0FBQ0QsaUVBQWVkLE9BQU87QUFFdEIsTUFBTWlCLGdCQUFnQixHQUFHLE9BQU9YLEtBQVUsR0FBSztJQUMzQyxNQUFNZ0IsU0FBUyxHQUFHdkIsZ0RBQVMsQ0FBQ3lCLE9BQU8sQ0FBQ0MsR0FBRyxFQUFFLEVBQUUsUUFBUSxFQUFFLFFBQVEsRUFBRW5CLEtBQUssQ0FBQztJQUNyRSxPQUFPUixvREFBYSxDQUFDd0IsU0FBUyxDQUFDO0NBQ2xDIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vdGhpZXRiaWhxLy4vcGFnZXMvYXBpL2NhdGVnb3JpZXMvaW5kZXgudHM/ZmMyMSJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgdHlwZSB7IE5leHRBcGlSZXF1ZXN0LCBOZXh0QXBpUmVzcG9uc2UgfSBmcm9tICduZXh0J1xyXG5pbXBvcnQgeyBjYXRlZ29yeVJlcG8gfSBmcm9tICcuLi8uLi8uLi9yZXBvc2l0b3J5J1xyXG5pbXBvcnQgZnMgZnJvbSAnZnMnXHJcbmltcG9ydCBwYXRoIGZyb20gJ3BhdGgnXHJcbmNvbnN0IGhhbmRsZXIgPSBhc3luYyAocmVxOiBOZXh0QXBpUmVxdWVzdCwgcmVzOiBOZXh0QXBpUmVzcG9uc2UpID0+IHtcclxuXHJcbiAgICBjb25zdCB7aWQsIG5hbWUsIHNsdWcsIGltYWdlfSA9IHJlcS5ib2R5XHJcbiAgICBjb25zb2xlLmxvZyhyZXEuYm9keSlcclxuXHJcbiAgICBpZiAocmVxLm1ldGhvZCA9PT0gJ0dFVCcpIHtcclxuICAgICAgICBjb25zdCBkYXRhID0gYXdhaXQgY2F0ZWdvcnlSZXBvLmdldEFsbCgpXHJcbiAgICAgICAgcmV0dXJuIHJlcy5zdGF0dXMoMjAwKS5qc29uKGRhdGEpXHJcbiAgICB9XHJcblxyXG4gICAgaWYgKHJlcS5tZXRob2QgPT09ICdQT1NUJykge1xyXG4gICAgICAgIGF3YWl0IGNhdGVnb3J5UmVwby5jcmVhdGUobmFtZSwgc2x1ZywgaW1hZ2UpXHJcbiAgICAgICAgcmV0dXJuIHJlcy5zdGF0dXMoMjA0KVxyXG4gICAgfVxyXG5cclxuICAgIGlmKHJlcS5tZXRob2QgPT09ICdQVVQnKSB7XHJcbiAgICAgICAgY29uc29sZS5sb2cocmVxLmJvZHkuaW1hZ2VPbGQpXHJcbiAgICAgICAgaWYocmVxLmJvZHkuaW1hZ2VPbGQgIT09ICcnKXtcclxuICAgICAgICAgICAgZGVsZXRlRnJvbUZvbGRlcihyZXEuYm9keS5pbWFnZU9sZClcclxuICAgICAgICB9XHJcbiAgICAgICAgYXdhaXQgY2F0ZWdvcnlSZXBvLnVwZGF0ZShpZCwgbmFtZSwgc2x1ZywgaW1hZ2UpXHJcbiAgICAgICAgcmV0dXJuIHJlcy5zdGF0dXMoMjAwKVxyXG4gICAgfVxyXG5cclxuICAgIGlmIChyZXEubWV0aG9kID09PSAnREVMRVRFJykge1xyXG4gICAgICAgIGRlbGV0ZUZyb21Gb2xkZXIoaW1hZ2UpXHJcbiAgICAgICAgY2F0ZWdvcnlSZXBvLnJlbW92ZShKU09OLnN0cmluZ2lmeShpZCkpXHJcbiAgICAgICAgcmV0dXJuIHJlcy5zdGF0dXMoMjAwKS5qc29uKFwiRGVsZXRlZFwiKVxyXG4gICAgfVxyXG4gICAgXHJcbn1cclxuZXhwb3J0IGRlZmF1bHQgaGFuZGxlclxyXG5cclxuY29uc3QgZGVsZXRlRnJvbUZvbGRlciA9IGFzeW5jIChpbWFnZTogYW55KSA9PiB7XHJcbiAgICBjb25zdCBpbWFnZVBhdGggPSBwYXRoLmpvaW4ocHJvY2Vzcy5jd2QoKSwgJ3B1YmxpYycsICdpbWFnZXMnLCBpbWFnZSlcclxuICAgIHJldHVybiBmcy51bmxpbmtTeW5jKGltYWdlUGF0aClcclxufSJdLCJuYW1lcyI6WyJjYXRlZ29yeVJlcG8iLCJmcyIsInBhdGgiLCJoYW5kbGVyIiwicmVxIiwicmVzIiwiaWQiLCJuYW1lIiwic2x1ZyIsImltYWdlIiwiYm9keSIsImNvbnNvbGUiLCJsb2ciLCJtZXRob2QiLCJkYXRhIiwiZ2V0QWxsIiwic3RhdHVzIiwianNvbiIsImNyZWF0ZSIsImltYWdlT2xkIiwiZGVsZXRlRnJvbUZvbGRlciIsInVwZGF0ZSIsInJlbW92ZSIsIkpTT04iLCJzdHJpbmdpZnkiLCJpbWFnZVBhdGgiLCJqb2luIiwicHJvY2VzcyIsImN3ZCIsInVubGlua1N5bmMiXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///(api)/./pages/api/categories/index.ts\n");
+
+/***/ }),
+
+/***/ "(api)/./repository/categoryRepo.ts":
+/*!************************************!*\
+  !*** ./repository/categoryRepo.ts ***!
+  \************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"categoryRepo\": () => (/* binding */ categoryRepo)\n/* harmony export */ });\n/* harmony import */ var _config_dbConfig__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config/dbConfig */ \"(api)/./config/dbConfig/index.tsx\");\n\nconst getAll = async ()=>{\n    const [rows] = await _config_dbConfig__WEBPACK_IMPORTED_MODULE_0__[\"default\"].query(\"SELECT * FROM category\");\n    return rows;\n};\nconst getOne = async (id)=>{\n    const [row] = await _config_dbConfig__WEBPACK_IMPORTED_MODULE_0__[\"default\"].query(\"SELECT * FROM category WHERE id = \" + id + \"\");\n    return row;\n};\nconst create = async (name, slug, image)=>{\n    const query = 'INSERT INTO category (name, slug, image) VALUES (\"' + name + '\", \"' + slug + '\", \"' + image + '\")';\n    return await _config_dbConfig__WEBPACK_IMPORTED_MODULE_0__[\"default\"].query(query);\n};\nconst update = async (id, name, slug, image)=>{\n    console.log(id);\n    const query = `UPDATE category SET name = \"` + name + `\", slug = \"` + slug + `\", image = \"` + image + `\" WHERE id = \"` + id + `\"`;\n    return await _config_dbConfig__WEBPACK_IMPORTED_MODULE_0__[\"default\"].query(query);\n};\nconst remove = async (id)=>{\n    const query = \"DELETE FROM category WHERE id = \" + id + \"\";\n    return await _config_dbConfig__WEBPACK_IMPORTED_MODULE_0__[\"default\"].query(query);\n};\nconst categoryRepo = {\n    getAll,\n    getOne,\n    create,\n    update,\n    remove\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9yZXBvc2l0b3J5L2NhdGVnb3J5UmVwby50cy5qcyIsIm1hcHBpbmdzIjoiOzs7OztBQUFxQztBQUVyQyxNQUFNQyxNQUFNLEdBQUcsVUFBWTtJQUN2QixNQUFNLENBQUNDLElBQUksQ0FBQyxHQUFHLE1BQU1GLDhEQUFVLENBQUMsd0JBQXdCLENBQUM7SUFDekQsT0FBT0UsSUFBSTtDQUNkO0FBRUQsTUFBTUUsTUFBTSxHQUFHLE9BQU9DLEVBQU0sR0FBSztJQUM3QixNQUFNLENBQUNDLEdBQUcsQ0FBQyxHQUFHLE1BQU1OLDhEQUFVLENBQUMsb0NBQW9DLEdBQUVLLEVBQUUsR0FBRSxFQUFFLENBQUM7SUFDNUUsT0FBT0MsR0FBRztDQUNiO0FBRUQsTUFBTUMsTUFBTSxHQUFHLE9BQU9DLElBQVksRUFBRUMsSUFBWSxFQUFFQyxLQUFhLEdBQUs7SUFDaEUsTUFBTVAsS0FBSyxHQUFHLG9EQUFvRCxHQUFFSyxJQUFJLEdBQUUsTUFBTSxHQUFFQyxJQUFJLEdBQUUsTUFBTSxHQUFFQyxLQUFLLEdBQUUsSUFBSTtJQUMzRyxPQUFPLE1BQU1WLDhEQUFVLENBQUNHLEtBQUssQ0FBQztDQUNqQztBQUVELE1BQU1RLE1BQU0sR0FBRyxPQUFPTixFQUFPLEVBQUVHLElBQVMsRUFBRUMsSUFBUyxFQUFFQyxLQUFVLEdBQUs7SUFDaEVFLE9BQU8sQ0FBQ0MsR0FBRyxDQUFDUixFQUFFLENBQUM7SUFDZixNQUFNRixLQUFLLEdBQUcsQ0FBQyw0QkFBNEIsQ0FBQyxHQUFFSyxJQUFJLEdBQUUsQ0FBQyxXQUFXLENBQUMsR0FBRUMsSUFBSSxHQUFFLENBQUMsWUFBWSxDQUFDLEdBQUVDLEtBQUssR0FBRSxDQUFDLGNBQWMsQ0FBQyxHQUFFTCxFQUFFLEdBQUUsQ0FBQyxDQUFDLENBQUM7SUFDekgsT0FBTyxNQUFNTCw4REFBVSxDQUFDRyxLQUFLLENBQUM7Q0FDakM7QUFFRCxNQUFNVyxNQUFNLEdBQUcsT0FBT1QsRUFBVSxHQUFLO0lBQ2pDLE1BQU1GLEtBQUssR0FBRyxrQ0FBa0MsR0FBRUUsRUFBRSxHQUFFLEVBQUU7SUFDeEQsT0FBTyxNQUFNTCw4REFBVSxDQUFDRyxLQUFLLENBQUM7Q0FDakM7QUFFTSxNQUFNWSxZQUFZLEdBQUc7SUFDeEJkLE1BQU07SUFDTkcsTUFBTTtJQUNORyxNQUFNO0lBQ05JLE1BQU07SUFDTkcsTUFBTTtDQUNUIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vdGhpZXRiaWhxLy4vcmVwb3NpdG9yeS9jYXRlZ29yeVJlcG8udHM/MmEwYiJdLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgcG9vbCBmcm9tIFwiLi4vY29uZmlnL2RiQ29uZmlnXCJcclxuXHJcbmNvbnN0IGdldEFsbCA9IGFzeW5jICgpID0+IHtcclxuICAgIGNvbnN0IFtyb3dzXSA9IGF3YWl0IHBvb2wucXVlcnkoJ1NFTEVDVCAqIEZST00gY2F0ZWdvcnknKVxyXG4gICAgcmV0dXJuIHJvd3NcclxufVxyXG5cclxuY29uc3QgZ2V0T25lID0gYXN5bmMgKGlkOmFueSkgPT4ge1xyXG4gICAgY29uc3QgW3Jvd10gPSBhd2FpdCBwb29sLnF1ZXJ5KCdTRUxFQ1QgKiBGUk9NIGNhdGVnb3J5IFdIRVJFIGlkID0gJysgaWQgKycnKVxyXG4gICAgcmV0dXJuIHJvd1xyXG59XHJcblxyXG5jb25zdCBjcmVhdGUgPSBhc3luYyAobmFtZTogc3RyaW5nLCBzbHVnOiBzdHJpbmcsIGltYWdlOiBzdHJpbmcpID0+IHtcclxuICAgIGNvbnN0IHF1ZXJ5ID0gJ0lOU0VSVCBJTlRPIGNhdGVnb3J5IChuYW1lLCBzbHVnLCBpbWFnZSkgVkFMVUVTIChcIicrIG5hbWUgKydcIiwgXCInKyBzbHVnICsnXCIsIFwiJysgaW1hZ2UgKydcIiknXHJcbiAgICByZXR1cm4gYXdhaXQgcG9vbC5xdWVyeShxdWVyeSlcclxufVxyXG5cclxuY29uc3QgdXBkYXRlID0gYXN5bmMgKGlkOiBhbnksIG5hbWU6IGFueSwgc2x1ZzogYW55LCBpbWFnZTogYW55KSA9PiB7XHJcbiAgICBjb25zb2xlLmxvZyhpZClcclxuICAgIGNvbnN0IHF1ZXJ5ID0gYFVQREFURSBjYXRlZ29yeSBTRVQgbmFtZSA9IFwiYCsgbmFtZSArYFwiLCBzbHVnID0gXCJgKyBzbHVnICtgXCIsIGltYWdlID0gXCJgKyBpbWFnZSArYFwiIFdIRVJFIGlkID0gXCJgKyBpZCArYFwiYFxyXG4gICAgcmV0dXJuIGF3YWl0IHBvb2wucXVlcnkocXVlcnkpXHJcbn1cclxuXHJcbmNvbnN0IHJlbW92ZSA9IGFzeW5jIChpZDogc3RyaW5nKSA9PiB7XHJcbiAgICBjb25zdCBxdWVyeSA9ICdERUxFVEUgRlJPTSBjYXRlZ29yeSBXSEVSRSBpZCA9ICcrIGlkICsnJ1xyXG4gICAgcmV0dXJuIGF3YWl0IHBvb2wucXVlcnkocXVlcnkpXHJcbn1cclxuXHJcbmV4cG9ydCBjb25zdCBjYXRlZ29yeVJlcG8gPSB7XHJcbiAgICBnZXRBbGwsXHJcbiAgICBnZXRPbmUsXHJcbiAgICBjcmVhdGUsXHJcbiAgICB1cGRhdGUsXHJcbiAgICByZW1vdmVcclxufSJdLCJuYW1lcyI6WyJwb29sIiwiZ2V0QWxsIiwicm93cyIsInF1ZXJ5IiwiZ2V0T25lIiwiaWQiLCJyb3ciLCJjcmVhdGUiLCJuYW1lIiwic2x1ZyIsImltYWdlIiwidXBkYXRlIiwiY29uc29sZSIsImxvZyIsInJlbW92ZSIsImNhdGVnb3J5UmVwbyJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(api)/./repository/categoryRepo.ts\n");
+
+/***/ }),
+
+/***/ "(api)/./repository/index.ts":
+/*!*****************************!*\
+  !*** ./repository/index.ts ***!
+  \*****************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _categoryRepo__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./categoryRepo */ \"(api)/./repository/categoryRepo.ts\");\n/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};\n/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _categoryRepo__WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== \"default\") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _categoryRepo__WEBPACK_IMPORTED_MODULE_0__[__WEBPACK_IMPORT_KEY__]\n/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);\n/* harmony import */ var _productRepo__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./productRepo */ \"(api)/./repository/productRepo.ts\");\n/* harmony reexport (unknown) */ var __WEBPACK_REEXPORT_OBJECT__ = {};\n/* harmony reexport (unknown) */ for(const __WEBPACK_IMPORT_KEY__ in _productRepo__WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== \"default\") __WEBPACK_REEXPORT_OBJECT__[__WEBPACK_IMPORT_KEY__] = () => _productRepo__WEBPACK_IMPORTED_MODULE_1__[__WEBPACK_IMPORT_KEY__]\n/* harmony reexport (unknown) */ __webpack_require__.d(__webpack_exports__, __WEBPACK_REEXPORT_OBJECT__);\n\n\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9yZXBvc2l0b3J5L2luZGV4LnRzLmpzIiwibWFwcGluZ3MiOiI7Ozs7Ozs7OztBQUE4QjtBQUNEIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vdGhpZXRiaWhxLy4vcmVwb3NpdG9yeS9pbmRleC50cz9iYjEyIl0sInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCAqIGZyb20gJy4vY2F0ZWdvcnlSZXBvJ1xyXG5leHBvcnQgKiBmcm9tICcuL3Byb2R1Y3RSZXBvJyJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///(api)/./repository/index.ts\n");
+
+/***/ }),
+
+/***/ "(api)/./repository/productRepo.ts":
+/*!***********************************!*\
+  !*** ./repository/productRepo.ts ***!
+  \***********************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"productRepo\": () => (/* binding */ productRepo)\n/* harmony export */ });\n/* harmony import */ var _config_dbConfig__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../config/dbConfig */ \"(api)/./config/dbConfig/index.tsx\");\n\nconst getAll = async ()=>{\n    const [rows] = await _config_dbConfig__WEBPACK_IMPORTED_MODULE_0__[\"default\"].query(\"SELECT * FROM product\");\n    return rows;\n};\n/*const getOne = async (id:any) => {\r\n    const [row] = await pool.query('SELECT * FROM category WHERE id = '+ id +'')\r\n    return row\r\n}*/ const create = async (item)=>{\n    const query = 'INSERT INTO product (id_category, name, slug, image_link, image_list, price, content, discount, created, status) VALUES (\"' + item.id_category + '\", \"' + item.name + '\", \"' + item.slug + '\", \"' + item.image_link + '\", \"' + item.image_list + '\", \"' + item.price + '\", \"' + item.content + '\", \"' + item.discount + '\", \"' + item.created + '\", \"' + item.status + '\")';\n    return await _config_dbConfig__WEBPACK_IMPORTED_MODULE_0__[\"default\"].query(query);\n};\n/*const update = async (id: any, name: any, slug: any, image: any) => {\r\n    console.log(id)\r\n    const query = `UPDATE category SET name = \"`+ name +`\", slug = \"`+ slug +`\", image = \"`+ image +`\" WHERE id = \"`+ id +`\"`\r\n    return await pool.query(query)\r\n}*/ /*const remove = async (id: string) => {\r\n    const query = 'DELETE FROM category WHERE id = '+ id +''\r\n    return await pool.query(query)\r\n}*/ const productRepo = {\n    getAll,\n    //getOne,\n    create\n};\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiKGFwaSkvLi9yZXBvc2l0b3J5L3Byb2R1Y3RSZXBvLnRzLmpzIiwibWFwcGluZ3MiOiI7Ozs7O0FBQXFDO0FBR3JDLE1BQU1DLE1BQU0sR0FBRyxVQUFZO0lBQ3ZCLE1BQU0sQ0FBQ0MsSUFBSSxDQUFDLEdBQUcsTUFBTUYsOERBQVUsQ0FBQyx1QkFBdUIsQ0FBQztJQUN4RCxPQUFPRSxJQUFJO0NBQ2Q7QUFFRDtJQU1JLE1BQU1DLEtBQUssR0FBRztJQUNkLE9BQU87Q0FDVjtBQUVELG9RQUlHLENBRUg7SUFNSUYsTUFBTTs7SUFFTkcsTUFBTTtDQUdUIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vdGhpZXRiaWhxLy4vcmVwb3NpdG9yeS9wcm9kdWN0UmVwby50cz9mN2QyIl0sInNvdXJjZXNDb250ZW50IjpbImltcG9ydCBwb29sIGZyb20gXCIuLi9jb25maWcvZGJDb25maWdcIlxyXG5pbXBvcnQgeyBQcm9kdWN0IH0gZnJvbSBcIi4uL2xpYi9pbnRlcmZhY2VzL0lQcm9kdWN0XCJcclxuXHJcbmNvbnN0IGdldEFsbCA9IGFzeW5jICgpID0+IHtcclxuICAgIGNvbnN0IFtyb3dzXSA9IGF3YWl0IHBvb2wucXVlcnkoJ1NFTEVDVCAqIEZST00gcHJvZHVjdCcpXHJcbiAgICByZXR1cm4gcm93c1xyXG59XHJcblxyXG4vKmNvbnN0IGdldE9uZSA9IGFzeW5jIChpZDphbnkpID0+IHtcclxuICAgIGNvbnN0IFtyb3ddID0gYXdhaXQgcG9vbC5xdWVyeSgnU0VMRUNUICogRlJPTSBjYXRlZ29yeSBXSEVSRSBpZCA9ICcrIGlkICsnJylcclxuICAgIHJldHVybiByb3dcclxufSovXHJcblxyXG5jb25zdCBjcmVhdGUgPSBhc3luYyAoaXRlbTogUHJvZHVjdCkgPT4ge1xyXG4gICAgY29uc3QgcXVlcnkgPSAnSU5TRVJUIElOVE8gcHJvZHVjdCAoaWRfY2F0ZWdvcnksIG5hbWUsIHNsdWcsIGltYWdlX2xpbmssIGltYWdlX2xpc3QsIHByaWNlLCBjb250ZW50LCBkaXNjb3VudCwgY3JlYXRlZCwgc3RhdHVzKSBWQUxVRVMgKFwiJysgaXRlbS5pZF9jYXRlZ29yeSArJ1wiLCBcIicrIGl0ZW0ubmFtZSArJ1wiLCBcIicrIGl0ZW0uc2x1ZyArJ1wiLCBcIicrIGl0ZW0uaW1hZ2VfbGluayArJ1wiLCBcIicrIGl0ZW0uaW1hZ2VfbGlzdCArJ1wiLCBcIicrIGl0ZW0ucHJpY2UgKydcIiwgXCInKyBpdGVtLmNvbnRlbnQgKydcIiwgXCInKyBpdGVtLmRpc2NvdW50ICsnXCIsIFwiJysgaXRlbS5jcmVhdGVkICsnXCIsIFwiJysgaXRlbS5zdGF0dXMgKydcIiknXHJcbiAgICByZXR1cm4gYXdhaXQgcG9vbC5xdWVyeShxdWVyeSlcclxufVxyXG5cclxuLypjb25zdCB1cGRhdGUgPSBhc3luYyAoaWQ6IGFueSwgbmFtZTogYW55LCBzbHVnOiBhbnksIGltYWdlOiBhbnkpID0+IHtcclxuICAgIGNvbnNvbGUubG9nKGlkKVxyXG4gICAgY29uc3QgcXVlcnkgPSBgVVBEQVRFIGNhdGVnb3J5IFNFVCBuYW1lID0gXCJgKyBuYW1lICtgXCIsIHNsdWcgPSBcImArIHNsdWcgK2BcIiwgaW1hZ2UgPSBcImArIGltYWdlICtgXCIgV0hFUkUgaWQgPSBcImArIGlkICtgXCJgXHJcbiAgICByZXR1cm4gYXdhaXQgcG9vbC5xdWVyeShxdWVyeSlcclxufSovXHJcblxyXG4vKmNvbnN0IHJlbW92ZSA9IGFzeW5jIChpZDogc3RyaW5nKSA9PiB7XHJcbiAgICBjb25zdCBxdWVyeSA9ICdERUxFVEUgRlJPTSBjYXRlZ29yeSBXSEVSRSBpZCA9ICcrIGlkICsnJ1xyXG4gICAgcmV0dXJuIGF3YWl0IHBvb2wucXVlcnkocXVlcnkpXHJcbn0qL1xyXG5cclxuZXhwb3J0IGNvbnN0IHByb2R1Y3RSZXBvID0ge1xyXG4gICAgZ2V0QWxsLFxyXG4gICAgLy9nZXRPbmUsXHJcbiAgICBjcmVhdGUsXHJcbiAgICAvL3VwZGF0ZSxcclxuICAgIC8vcmVtb3ZlXHJcbn0iXSwibmFtZXMiOlsicG9vbCIsImdldEFsbCIsInJvd3MiLCJxdWVyeSIsImNyZWF0ZSIsIml0ZW0iLCJpZF9jYXRlZ29yeSIsIm5hbWUiLCJzbHVnIiwiaW1hZ2VfbGluayIsImltYWdlX2xpc3QiLCJwcmljZSIsImNvbnRlbnQiLCJkaXNjb3VudCIsImNyZWF0ZWQiLCJzdGF0dXMiLCJwcm9kdWN0UmVwbyJdLCJzb3VyY2VSb290IjoiIn0=\n//# sourceURL=webpack-internal:///(api)/./repository/productRepo.ts\n");
 
 /***/ })
 
@@ -65,7 +100,7 @@ const handler = async (req, res)=>{
 var __webpack_require__ = require("../../webpack-api-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = (__webpack_exec__(7733));
+var __webpack_exports__ = (__webpack_exec__("(api)/./pages/api/categories/index.ts"));
 module.exports = __webpack_exports__;
 
 })();

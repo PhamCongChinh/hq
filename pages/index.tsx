@@ -1,31 +1,55 @@
-import type { NextPage } from 'next'
-
 import type { ReactElement } from 'react'
 import Layout from '../components/Layout'
 import type { NextPageWithLayout } from './_app'
-
 import Image from 'next/image'
-import logo from '../public/images/logo.png'
+import { Category } from '../lib/interfaces'
 
-const Home: NextPageWithLayout = () => {
+//Icon
+//import { getAll } from '../service/category'
+import { GetStaticProps } from 'next'
+import axios from 'axios'
+
+type Props = {
+    items: Category[],
+}
+
+const Home: NextPageWithLayout<Props> = ({items}: Props) => {
     return (
-        <main>
-            <div className="flex">
-                <div className="grow h-12 justify-center">
-                    <div className="divide-y divide-dashed">
-                        <div>01</div>
-                        <div>02</div>
-                        <div>03</div>
+        <div className=''>
+            <div className='grid grid-cols-4'>
+                {items.map((item) => {
+                    return <div key={item.id} className='border cursor-pointer'>
+                        <div className='relative h-64'>
+                            <Image src={`/images/${item.image}`} alt={item.name} priority layout='fill'/>
+                        </div>
+                        <div><h1 className='text-lg font-semibold p-2'>{item.name}</h1></div>
                     </div>
-                </div>
+                })}
             </div>
-        </main>
+        </div>
     )
+}
+
+export const getStaticProps: GetStaticProps = async () => {
+    //const items = await getAll()
+    const result = await axios.get('http://localhost:3000/api/categories')
+    const items = result.data
+    if (!items) {
+        return {
+            notFound: true,
+        }
+    }
+    return {
+        props: {
+            items: items
+        },
+        revalidate: 10,
+    }
 }
 
 Home.getLayout = function getLayout(page: ReactElement) {
     return (
-        <Layout>
+        <Layout title='Công ty TNHH thương mại và sản xuất HQ'>
             {page}
         </Layout>
     )

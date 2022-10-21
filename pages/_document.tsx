@@ -14,7 +14,7 @@ class MyDocument extends Document {
                     <meta charSet="utf-8" />
                     <Favicon />
                 </Head>
-                <body>
+                <body className='bg-slate-200'>
                     <Main />
                     <NextScript />
                 </body>
