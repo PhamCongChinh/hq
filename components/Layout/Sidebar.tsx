@@ -9,7 +9,6 @@ const Sidebar = (props: any): JSX.Element => {
     ):(
         <div>Loading...</div>
     )*/
-    console.log(data)
     return (
         <div className="hidden md:grid bg-white">
             <div className="bg-blue-500 text-center text-sm text-white py-2">

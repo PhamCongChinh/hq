@@ -12,7 +12,8 @@ const handler = async (req: NextApiRequest, res: NextApiResponse, product: Produ
     console.log("product",product)
     
     if (req.method === 'GET') {
-        const data = await productRepo.getAll()
+        let data = null
+        data = await productRepo.getAll()
         return res.status(200).json(data)
     }
 

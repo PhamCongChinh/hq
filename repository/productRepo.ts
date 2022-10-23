@@ -6,8 +6,8 @@ const getAll = async () => {
     return rows
 }
 
-const getOne = async (id:any) => {
-    const [row] = await pool.query('SELECT * FROM product WHERE id = '+ id +'')
+const getOne = async (slug:string) => {
+    const [row] = await pool.query('SELECT * FROM product WHERE slug = "'+ slug +'"')
     return row
 }
 

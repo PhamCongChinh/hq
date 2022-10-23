@@ -1,35 +1,36 @@
 import type { ReactElement } from 'react'
 import Layout from '../components/Layout'
-import type { NextPageWithLayout } from './_app'
-import { Product } from '../lib/interfaces/IProduct'
-
 import { GetStaticProps } from 'next'
+import type { NextPageWithLayout } from './_app'
+
+import { CONSTANTS } from '../lib/constants'
+import { Product } from '../lib/interfaces/IProduct'
+import ListProducts from '../components/ProductsList'
 import axios from 'axios'
-import ListProducts from '../components/ListProducts'
 
 type Props = {
     items: Product[],
+    constant: CONSTANTS[]
 }
 
-const Home: NextPageWithLayout<Props> = ({items}: Props) => {
+const Home: NextPageWithLayout<Props> = ({items, constant}: Props) => {
+    console.log(constant)
     return (
-        <div className=''>
-            <ListProducts data={items}/>
-        </div>
+        <ListProducts data={items}/>
     )
 }
 
 export const getStaticProps: GetStaticProps = async () => {
     const result = await axios.get('http://localhost:3000/api/products')
-    const items = result.data
-    if (!items) {
+    const response = result.data
+    if (!response) {
         return {
             notFound: true,
         }
     }
     return {
         props: {
-            items: items
+            items: response
         },
         revalidate: 10,
     }
@@ -37,7 +38,7 @@ export const getStaticProps: GetStaticProps = async () => {
 
 Home.getLayout = function getLayout(page: ReactElement) {
     return (
-        <Layout title='Công ty TNHH thương mại và sản xuất HQ'>
+        <Layout title={`${page.props.constant}`}>
             {page}
         </Layout>
     )

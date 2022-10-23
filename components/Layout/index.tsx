@@ -5,7 +5,7 @@ import Footer from './Footer';
 import Sidebar from './Sidebar';
 import { GetStaticProps } from 'next';
 //import { getAll } from '../../service/category';
-import { Category } from '../../lib/interfaces';
+//import { Category } from '../../lib/interfaces';
 
 import useSWR from 'swr';
 const fetcher = (url:string) => fetch(url).then((res) => res.json())
@@ -13,7 +13,7 @@ const fetcher = (url:string) => fetch(url).then((res) => res.json())
 interface Props {
     children: React.ReactNode,
     title?: string,
-    items?: Category[],
+    //items?: Category[],
     result?:any
 }
 

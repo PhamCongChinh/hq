@@ -46,7 +46,7 @@ const Header = (): JSX.Element => {
                                 <Link href={'/client/introduce'}>Giới thiệu</Link>
                             </li>
                             <li className="px-3">
-                                <Link href={'/'} >Sản phẩm</Link>
+                                <Link href={'/client/san-pham'} >Sản phẩm</Link>
                             </li>
                             <li className="px-3">
                                 <Link href={'/'}>Tin tức</Link>

@@ -2,14 +2,14 @@ import Layout from "../../../components/LayoutDashboard"
 import type { ReactElement } from 'react'
 import type { NextPageWithLayout } from '../../_app'
 
-import { urlGetAllUsers } from "../../../lib/api"
+//import { urlGetAllUsers } from "../../../lib/api"
 import useSWR from 'swr'
 import { fetcher } from "../../../lib/fetcher"
 //import { IUserResponse } from "../../../lib/interfaces"
 
 const User: NextPageWithLayout = () => {
 
-    const { data, error } = useSWR(urlGetAllUsers, fetcher)
+    const { data, error } = useSWR(`/api/users`, fetcher)
 
     if (error) return <h1>Something went wrong!</h1>;
     if (!data) return <h1>Loading...</h1>;

@@ -2,11 +2,7 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
-  "/api/auth/login": "pages/api/auth/login.js",
-  "/dashboard": "pages/dashboard.js",
-  "/login": "pages/login.js",
-  "/api/products": "pages/api/products.js",
-  "/dashboard/products": "pages/dashboard/products.js",
-  "/dashboard/categories": "pages/dashboard/categories.js",
-  "/api/categories": "pages/api/categories.js"
+  "/api/categories": "pages/api/categories.js",
+  "/": "pages/index.js",
+  "/api/products": "pages/api/products.js"
 }
