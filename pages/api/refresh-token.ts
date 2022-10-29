@@ -20,11 +20,12 @@ export default async function handler(
             const { payload } = await verify(refreshToken, refreshTokenSecret)
             console.log(payload)
             const newToken = await sign(payload as string, accessTokenSecret)
+            console.log(newToken)
             const serialised = serialize("accessToken", newToken, {
                 httpOnly: true,
                 secure: process.env.NODE_ENV !== "development",
                 sameSite: "strict",
-                maxAge: 60 * 60 * 24 * 30,
+                maxAge: 60 * 2,
                 path: "/"
             })
             res.setHeader('Set-Cookie', serialised)
